@@ -32,6 +32,8 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.NewtablesBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.NewtablesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SampleDBDataSet = New WindowsAppnew.SampleDBDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -50,20 +52,18 @@ Partial Class Form1
         Me.CityTextBox = New System.Windows.Forms.TextBox()
         Me.ZipTextBox = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.NewQueryToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.NewQueryToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.NewtablesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SampleDBDataSet = New WindowsAppnew.SampleDBDataSet()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CustomerNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Add1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Add2DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ZipDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.NewQueryToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.NewQueryToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.NewtablesTableAdapter = New WindowsAppnew.SampleDBDataSetTableAdapters.NewtablesTableAdapter()
         Me.TableAdapterManager = New WindowsAppnew.SampleDBDataSetTableAdapters.TableAdapterManager()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -76,11 +76,11 @@ Partial Class Form1
         ZipLabel = New System.Windows.Forms.Label()
         CType(Me.NewtablesBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.NewtablesBindingNavigator.SuspendLayout()
+        CType(Me.NewtablesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SampleDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.NewQueryToolStrip.SuspendLayout()
-        CType(Me.NewtablesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SampleDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IDLabel
@@ -164,6 +164,16 @@ Partial Class Form1
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(29, 28)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'NewtablesBindingSource
+        '
+        Me.NewtablesBindingSource.DataMember = "Newtables"
+        Me.NewtablesBindingSource.DataSource = Me.SampleDBDataSet
+        '
+        'SampleDBDataSet
+        '
+        Me.SampleDBDataSet.DataSetName = "SampleDBDataSet"
+        Me.SampleDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -319,90 +329,6 @@ Partial Class Form1
         Me.DataGridView1.Size = New System.Drawing.Size(992, 286)
         Me.DataGridView1.TabIndex = 13
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(8, 218)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 28)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "ADD NEW"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(116, 218)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(100, 28)
-        Me.Button2.TabIndex = 15
-        Me.Button2.Text = "SAVE"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(224, 218)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(100, 28)
-        Me.Button3.TabIndex = 16
-        Me.Button3.Text = "DELETE"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.GroupBox1.Controls.Add(Me.CustomerNameTextBox)
-        Me.GroupBox1.Controls.Add(Me.Button3)
-        Me.GroupBox1.Controls.Add(Me.ZipTextBox)
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(ZipLabel)
-        Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.CityTextBox)
-        Me.GroupBox1.Controls.Add(CityLabel)
-        Me.GroupBox1.Controls.Add(IDLabel)
-        Me.GroupBox1.Controls.Add(Me.Add2TextBox)
-        Me.GroupBox1.Controls.Add(Me.IDTextBox)
-        Me.GroupBox1.Controls.Add(Add2Label)
-        Me.GroupBox1.Controls.Add(CustomerNameLabel)
-        Me.GroupBox1.Controls.Add(Me.Add1TextBox)
-        Me.GroupBox1.Controls.Add(Add1Label)
-        Me.GroupBox1.Location = New System.Drawing.Point(40, 52)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(344, 286)
-        Me.GroupBox1.TabIndex = 17
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
-        '
-        'NewQueryToolStrip
-        '
-        Me.NewQueryToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.NewQueryToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewQueryToolStripButton})
-        Me.NewQueryToolStrip.Location = New System.Drawing.Point(0, 31)
-        Me.NewQueryToolStrip.Name = "NewQueryToolStrip"
-        Me.NewQueryToolStrip.Size = New System.Drawing.Size(1485, 31)
-        Me.NewQueryToolStrip.TabIndex = 18
-        Me.NewQueryToolStrip.Text = "NewQueryToolStrip"
-        '
-        'NewQueryToolStripButton
-        '
-        Me.NewQueryToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.NewQueryToolStripButton.Name = "NewQueryToolStripButton"
-        Me.NewQueryToolStripButton.Size = New System.Drawing.Size(79, 28)
-        Me.NewQueryToolStripButton.Text = "newQuery"
-        '
-        'NewtablesBindingSource
-        '
-        Me.NewtablesBindingSource.DataMember = "Newtables"
-        Me.NewtablesBindingSource.DataSource = Me.SampleDBDataSet
-        '
-        'SampleDBDataSet
-        '
-        Me.SampleDBDataSet.DataSetName = "SampleDBDataSet"
-        Me.SampleDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'IDDataGridViewTextBoxColumn
         '
         Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
@@ -451,6 +377,80 @@ Partial Class Form1
         Me.ZipDataGridViewTextBoxColumn.Name = "ZipDataGridViewTextBoxColumn"
         Me.ZipDataGridViewTextBoxColumn.Width = 125
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(8, 218)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(100, 28)
+        Me.Button1.TabIndex = 14
+        Me.Button1.Text = "ADD NEW"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(116, 218)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(100, 28)
+        Me.Button2.TabIndex = 15
+        Me.Button2.Text = "SAVE"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(224, 218)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(100, 28)
+        Me.Button3.TabIndex = 16
+        Me.Button3.Text = "DELETE"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.GroupBox1.Controls.Add(Me.CustomerNameTextBox)
+        Me.GroupBox1.Controls.Add(Me.Button3)
+        Me.GroupBox1.Controls.Add(Me.ZipTextBox)
+        Me.GroupBox1.Controls.Add(Me.Button2)
+        Me.GroupBox1.Controls.Add(ZipLabel)
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.CityTextBox)
+        Me.GroupBox1.Controls.Add(CityLabel)
+        Me.GroupBox1.Controls.Add(IDLabel)
+        Me.GroupBox1.Controls.Add(Me.Add2TextBox)
+        Me.GroupBox1.Controls.Add(Me.IDTextBox)
+        Me.GroupBox1.Controls.Add(Add2Label)
+        Me.GroupBox1.Controls.Add(CustomerNameLabel)
+        Me.GroupBox1.Controls.Add(Me.Add1TextBox)
+        Me.GroupBox1.Controls.Add(Add1Label)
+        Me.GroupBox1.Location = New System.Drawing.Point(40, 52)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Size = New System.Drawing.Size(344, 286)
+        Me.GroupBox1.TabIndex = 17
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "GroupBox1"
+        '
+        'NewQueryToolStrip
+        '
+        Me.NewQueryToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.NewQueryToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewQueryToolStripButton})
+        Me.NewQueryToolStrip.Location = New System.Drawing.Point(0, 31)
+        Me.NewQueryToolStrip.Name = "NewQueryToolStrip"
+        Me.NewQueryToolStrip.Size = New System.Drawing.Size(1485, 31)
+        Me.NewQueryToolStrip.TabIndex = 18
+        Me.NewQueryToolStrip.Text = "NewQueryToolStrip"
+        '
+        'NewQueryToolStripButton
+        '
+        Me.NewQueryToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.NewQueryToolStripButton.Name = "NewQueryToolStripButton"
+        Me.NewQueryToolStripButton.Size = New System.Drawing.Size(79, 28)
+        Me.NewQueryToolStripButton.Text = "newQuery"
+        '
         'NewtablesTableAdapter
         '
         Me.NewtablesTableAdapter.ClearBeforeFill = True
@@ -470,9 +470,9 @@ Partial Class Form1
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(37, 353)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(71, 25)
+        Me.Label1.Size = New System.Drawing.Size(135, 25)
         Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Label1"
+        Me.Label1.Text = "No of Records"
         '
         'Form1
         '
@@ -490,13 +490,13 @@ Partial Class Form1
         CType(Me.NewtablesBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.NewtablesBindingNavigator.ResumeLayout(False)
         Me.NewtablesBindingNavigator.PerformLayout()
+        CType(Me.NewtablesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SampleDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.NewQueryToolStrip.ResumeLayout(False)
         Me.NewQueryToolStrip.PerformLayout()
-        CType(Me.NewtablesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SampleDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
