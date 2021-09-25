@@ -79,7 +79,18 @@
               <Mapping SourceColumn="City" DataSetColumn="City" />
               <Mapping SourceColumn="Zip" DataSetColumn="Zip" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="SampleDBConnectionString (MySettings)" DbObjectName="Newtables" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="newQuery" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="newQuery" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="newQuery">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, CustomerName, Add1, Add2, City, Zip
+FROM     Newtables
+ORDER BY ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -89,7 +100,7 @@
   <xs:element name="SampleDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SampleDBDataSet" msprop:Generator_UserDSName="SampleDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Newtables" msprop:Generator_TableClassName="NewtablesDataTable" msprop:Generator_TableVarName="tableNewtables" msprop:Generator_TablePropName="Newtables" msprop:Generator_RowDeletingName="NewtablesRowDeleting" msprop:Generator_RowChangingName="NewtablesRowChanging" msprop:Generator_RowEvHandlerName="NewtablesRowChangeEventHandler" msprop:Generator_RowDeletedName="NewtablesRowDeleted" msprop:Generator_UserTableName="Newtables" msprop:Generator_RowChangedName="NewtablesRowChanged" msprop:Generator_RowEvArgName="NewtablesRowChangeEvent" msprop:Generator_RowClassName="NewtablesRow">
+        <xs:element name="Newtables" msprop:Generator_TableClassName="NewtablesDataTable" msprop:Generator_TableVarName="tableNewtables" msprop:Generator_RowChangedName="NewtablesRowChanged" msprop:Generator_TablePropName="Newtables" msprop:Generator_RowDeletingName="NewtablesRowDeleting" msprop:Generator_RowChangingName="NewtablesRowChanging" msprop:Generator_RowEvHandlerName="NewtablesRowChangeEventHandler" msprop:Generator_RowDeletedName="NewtablesRowDeleted" msprop:Generator_RowClassName="NewtablesRow" msprop:Generator_UserTableName="Newtables" msprop:Generator_RowEvArgName="NewtablesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
